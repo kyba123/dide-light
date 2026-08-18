@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Dide Light — sklep z nowoczesnym oświetleniem. Lampy wiszące, stojące, kinkiety i lampy stołowe.">
+<title>Dide Light — sklep z oświetleniem</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a href="#" class="logo"><img src="logo.png" alt="Dide Light"></a>
+    <nav class="main-nav">
+      <a href="#sklep">Sklep</a><a href="#kategorie">Kategorie</a><a href="#o-nas">O nas</a><a href="#kontakt">Kontakt</a>
+    </nav>
+    <button class="cart-btn" id="openCart">Koszyk <span id="cartCount">0</span></button>
+    <button class="mobile-menu" id="mobileMenu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">DIDE LIGHT / SKLEP</p>
+      <h1>Światło, które<br><em>buduje klimat.</em></h1>
+      <p class="hero-text">Nowoczesne lampy do domu, biura i przestrzeni komercyjnych. Wybierz formę, która pasuje do Twojego wnętrza.</p>
+      <a href="#sklep" class="btn red">Kupuj teraz</a>
+    </div>
+    <div class="hero-art">
+      <div class="orb"></div><div class="hero-lamp l1"></div><div class="hero-lamp l2"></div><div class="hero-lamp l3"></div>
+      <div class="hero-caption">LIGHT<br><b>FORMS</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="categories" id="kategorie">
+  <div class="container">
+    <div class="section-title"><div><p class="eyebrow">KATEGORIE</p><h2>Znajdź swoją lampę</h2></div></div>
+    <div class="cat-grid">
+      <button data-cat="wiszace"><span class="cat-icon">◯</span><b>Wiszące</b><small>8 produktów</small></button>
+      <button data-cat="stojace"><span class="cat-icon">◒</span><b>Stojące</b><small>6 produktów</small></button>
+      <button data-cat="kinkiety"><span class="cat-icon">◐</span><b>Kinkiety</b><small>5 produktów</small></button>
+      <button data-cat="stolowe"><span class="cat-icon">◉</span><b>Stołowe</b><small>4 produkty</small></button>
+    </div>
+  </div>
+</section>
+
+<section class="shop" id="sklep">
+<div class="container">
+  <div class="shop-head">
+    <div><p class="eyebrow">SKLEP ONLINE</p><h2>Wybierz coś dla siebie</h2></div>
+    <div class="tools">
+      <select id="categoryFilter"><option value="all">Wszystkie kategorie</option><option value="wiszace">Lampy wiszące</option><option value="stojace">Lampy stojące</option><option value="kinkiety">Kinkiety</option><option value="stolowe">Lampy stołowe</option></select>
+      <select id="priceFilter"><option value="all">Cena: wszystkie</option><option value="0-300">Do 300 zł</option><option value="300-600">300–600 zł</option><option value="600-9999">Powyżej 600 zł</option></select>
+      <select id="sort"><option value="featured">Polecane</option><option value="priceAsc">Cena rosnąco</option><option value="priceDesc">Cena malejąco</option><option value="name">Nazwa A–Z</option></select>
+    </div>
+  </div>
+  <div class="products" id="products"></div>
+</div>
+</section>
+
+<section class="benefits">
+<div class="container benefits-grid">
+  <div><b>🚚</b><h3>Darmowa dostawa</h3><p>Od 500 zł na terenie Polski.</p></div>
+  <div><b>↩</b><h3>30 dni na zwrot</h3><p>Bezpieczne zakupy i prosty zwrot.</p></div>
+  <div><b>✓</b><h3>Bezpieczne płatności</h3><p>Karta, BLIK, szybki przelew.</p></div>
+</div>
+</section>
+
+<section class="about" id="o-nas">
+<div class="container about-grid">
+  <div><p class="eyebrow">DIDE LIGHT</p><h2>Projektujemy światło z myślą o codzienności.</h2></div>
+  <p>Wierzymy, że dobra lampa nie tylko oświetla pomieszczenie. Nadaje mu charakter, buduje nastrój i porządkuje przestrzeń. Dlatego wybieramy proste formy, dobre materiały i ponadczasowe rozwiązania.</p>
+</div>
+</section>
+
+<footer id="kontakt"><div class="container footer-grid">
+  <img src="logo.png" alt="Dide Light">
+  <div><b>Kontakt</b><p>hello@didelight.pl<br>+48 500 000 000</p></div>
+  <div><b>Sklep</b><p>Regulamin<br>Dostawa i zwroty<br>Polityka prywatności</p></div>
+  <div><b>© 2026 Dide Light</b><p>Oświetlenie z charakterem.</p></div>
+</div></footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer">
+  <div class="drawer-head"><h2>Twój koszyk</h2><button id="closeCart">×</button></div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-summary"><span>Suma</span><strong id="cartTotal">0 zł</strong></div>
+  <button class="btn red full" id="checkoutBtn">Przejdź do płatności</button>
+  <p class="tiny">Darmowa dostawa od 500 zł.</p>
+</aside>
+
+<div class="modal" id="checkoutModal">
+  <div class="modal-card">
+    <button class="modal-close" id="closeCheckout">×</button>
+    <div id="checkoutView">
+      <p class="eyebrow">ZAMÓWIENIE</p><h2>Dane do wysyłki</h2>
+      <div class="steps"><span class="active">1 Dane</span><span>2 Płatność</span><span>3 Gotowe</span></div>
+      <form id="checkoutForm">
+        <div class="form-grid"><input required placeholder="Imię i nazwisko"><input required type="email" placeholder="E-mail"><input required placeholder="Telefon"><input required placeholder="Ulica i numer"><input required placeholder="Kod pocztowy"><input required placeholder="Miasto"></div>
+        <h3>Metoda dostawy</h3>
+        <label class="choice"><input type="radio" name="delivery" value="courier" checked> Kurier — 15 zł</label>
+        <label class="choice"><input type="radio" name="delivery" value="free"> Darmowa dostawa — od 500 zł</label>
+        <h3>Metoda płatności</h3>
+        <div class="pay-grid"><label class="pay active"><input type="radio" name="payment" value="blik" checked><b>BLIK</b><small>Kod BLIK</small></label><label class="pay"><input type="radio" name="payment" value="card"><b>Karta</b><small>Visa / Mastercard</small></label><label class="pay"><input type="radio" name="payment" value="transfer"><b>Przelew</b><small>Szybki przelew</small></label></div>
+        <div class="order-total"><span>Do zapłaty</span><strong id="checkoutTotal">0 zł</strong></div>
+        <button class="btn red full" type="submit">Zapłać i złóż zamówienie</button>
+        <p class="payment-note">To jest demonstracyjny checkout. Aby przyjmować prawdziwe płatności, podłącz operatora płatności i backend.</p>
+      </form>
+    </div>
+    <div id="successView" class="success hidden"><div class="success-icon">✓</div><p class="eyebrow">GOTOWE</p><h2>Dziękujemy za zamówienie!</h2><p>Numer zamówienia: <b id="orderNo"></b></p><p>Potwierdzenie zostanie wysłane na podany adres e-mail.</p><button class="btn red" id="finish">Wróć do sklepu</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
